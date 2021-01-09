@@ -1,0 +1,9 @@
+Revision history for Neo4j::Driver::Net::HTTP::REST
+
+released as part of the Neo4j-Driver distribution
+
+
+0.19 / 2021-01-09
+
+ - Internal redesign (removes private Transport modules).
+ - Add experimental protocol() method for ServerInfo.
