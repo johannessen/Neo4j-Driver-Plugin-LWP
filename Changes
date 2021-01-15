@@ -3,6 +3,10 @@ Revision history for Neo4j::Driver::Net::HTTP::REST
 released as part of the Neo4j-Driver distribution
 
 
+0.21 / development
+
+ - Add experimental support for HTTP responses in Jolt format.
+
 0.20 / 2021-01-10
 
  - Add experimental date_header() for HTTP transaction timeout.
