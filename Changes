@@ -1,4 +1,4 @@
-Revision history for Neo4j::Driver::Net::HTTP::REST
+Revision history for Neo4j::Driver::Net::HTTP::LWP
 
 released as part of the Neo4j-Driver distribution
 
@@ -7,6 +7,7 @@ released as part of the Neo4j-Driver distribution
 
  - Add experimental support for HTTP responses in Jolt format.
  - Add experimental http_reason() and result_handlers() methods.
+ - Add Neo4j::Driver::Net::HTTP::LWP, remove REST::Client dependency.
 
 0.20 / 2021-01-10
 
