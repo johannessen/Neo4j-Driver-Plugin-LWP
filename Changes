@@ -3,6 +3,10 @@ Revision history for Neo4j::Driver::Net::HTTP::LWP
 released as part of the Neo4j-Driver distribution
 
 
+0.23 / 2021-04-23
+
+ - Work around breaking change in Neo4j 4.2.5 Jolt implementation.
+
 0.21 / 2021-02-06
 
  - Add experimental support for HTTP responses in Jolt format.
