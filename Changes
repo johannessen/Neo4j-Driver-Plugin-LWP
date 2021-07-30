@@ -3,6 +3,10 @@ Revision history for Neo4j::Driver::Net::HTTP::LWP
 released as part of the Neo4j-Driver distribution
 
 
+0.26 / 2021-07-30
+
+ - The experimental protocol() method is now discouraged.
+
 0.23 / 2021-04-23
 
  - Work around breaking change in Neo4j 4.2.5 Jolt implementation.
