@@ -3,6 +3,11 @@ Revision history for Neo4j::Driver::Net::HTTP::LWP
 released as part of the Neo4j-Driver distribution
 
 
+0.27 / 2021-08-28
+
+ - Use config() method to read Neo4j::Driver options.
+ - Rework auth handling.
+
 0.26 / 2021-07-30
 
  - The experimental protocol() method is now discouraged.

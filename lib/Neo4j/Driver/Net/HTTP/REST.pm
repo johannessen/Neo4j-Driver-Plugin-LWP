@@ -32,25 +32,26 @@ sub new {
 		json_coder => $JSON_CODER->(),
 	}, $class;
 	
-	my $uri = $driver->{uri};
-	if ($driver->{auth}) {
-		croak "Only HTTP Basic Authentication is supported" if $driver->{auth}->{scheme} ne 'basic';
+	my $uri = $driver->config('uri');
+	if (my $auth = $driver->config('auth')) {
+		croak "Only HTTP Basic Authentication is supported" if $auth->{scheme} ne 'basic';
 		$uri = $uri->clone;
-		$uri->userinfo( $driver->{auth}->{principal} . ':' . $driver->{auth}->{credentials} );
+		$uri->userinfo( $auth->{principal} . ':' . $auth->{credentials} );
 	}
 	
 	my $client = REST::Client->new({
 		host => "$uri",
-		timeout => $driver->{http_timeout},
+		timeout => $driver->config('timeout'),
 		follow => 1,
 	});
 	if ($uri->scheme eq 'https') {
-		$client->setCa($driver->{tls_ca});
-		croak "TLS CA file '$driver->{tls_ca}' doesn't exist (or is not a plain file)" if defined $driver->{tls_ca} && ! -f $driver->{tls_ca};  # REST::Client 273 doesn't support symbolic links
-		croak "HTTPS does not support unencrypted communication; use HTTP" if defined $driver->{tls} && ! $driver->{tls};
+		$client->setCa( my $trust_ca = $driver->config('trust_ca') );
+		croak "TLS CA file '$trust_ca' doesn't exist (or is not a plain file)" if defined $trust_ca && ! -f $trust_ca;  # REST::Client 273 doesn't support symbolic links
+		my $unencrypted = defined $driver->config('encrypted') && ! $driver->config('encrypted');
+		croak "HTTPS does not support unencrypted communication; use HTTP" if $unencrypted;
 	}
 	else {
-		croak "HTTP does not support encrypted communication; use HTTPS" if $driver->{tls};
+		croak "HTTP does not support encrypted communication; use HTTPS" if $driver->config('encrypted');
 	}
 	$client->addHeader('Content-Type', $CONTENT_TYPE);
 	$client->addHeader('X-Stream', 'true');
