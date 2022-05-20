@@ -6,6 +6,7 @@ released as part of the Neo4j-Driver distribution
 0.30 / development
 
  - Deprecate method protocol() in LWP net module.
+ - Rename method agent() to ua() in LWP net module.
 
 0.27 / 2021-08-28
 
