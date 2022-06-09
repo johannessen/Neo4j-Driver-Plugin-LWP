@@ -3,6 +3,11 @@ Revision history for Neo4j::Driver::Net::HTTP::LWP
 released as part of the Neo4j-Driver distribution
 
 
+0.31 / development
+
+ - Update docs: Neo4j::Driver has replaced the net_module config option
+   with an experimental plug-in interface.
+
 0.30 / 2022-05-20
 
  - Deprecate method protocol() in LWP net module.
