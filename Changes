@@ -3,10 +3,12 @@ Revision history for Neo4j::Driver::Net::HTTP::LWP
 released as part of the Neo4j-Driver distribution
 
 
-0.34 / development
+0.34 / 2023-01-22
 
  - Update to match changes in the Neo4j::Driver plug-in API:
    - Change synopsis to use add_handler() instead of add_event_handler().
+   - Implement specified behaviour for internal error responses generated
+     by libwww-perl.
 
 0.31 / 2022-06-13
 
