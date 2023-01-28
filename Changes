@@ -3,6 +3,11 @@ Revision history for Neo4j::Driver::Net::HTTP::LWP
 released as part of the Neo4j-Driver distribution
 
 
+0.36 / development
+
+ - Add support for non-standard Access-Mode HTTP header, which is needed
+   for managed transaction functions.
+
 0.34 / 2023-01-22
 
  - Update to match changes in the Neo4j::Driver plug-in API:
