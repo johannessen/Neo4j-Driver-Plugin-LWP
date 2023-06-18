@@ -3,6 +3,10 @@ Revision history for Neo4j::Driver::Net::HTTP::LWP
 released as part of the Neo4j-Driver distribution
 
 
+0.38 / 2023-06-18
+
+ - Tests no longer fail for unexpected warnings, except during author testing.
+
 0.36 / 2023-02-05
 
  - Add support for non-standard Access-Mode HTTP header, which is needed
