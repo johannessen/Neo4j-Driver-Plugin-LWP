@@ -224,6 +224,6 @@ The C<fetch_event()> method has not yet been optimised.
 
 =head1 SEE ALSO
 
-L<Neo4j::Driver::Net>
+L<Neo4j::Driver::Plugin>
 
 =cut
