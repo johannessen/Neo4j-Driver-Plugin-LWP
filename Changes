@@ -6,6 +6,7 @@ released as part of the Neo4j-Driver distribution
 1.01 / development
 
  - Tests no longer use config options deprecated in Neo4j::Driver version 1.
+ - Refactor trust_ca error check.
 
 1.00 / 2024-11-21
 
