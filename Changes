@@ -3,7 +3,7 @@ Revision history for Neo4j::Driver::Net::HTTP::LWP
 released as part of the Neo4j-Driver distribution
 
 
-1.01 / development
+1.01 / 2024-11-28
 
  - Tests no longer use config options deprecated in Neo4j::Driver version 1.
  - Refactor trust_ca error check.
