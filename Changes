@@ -3,6 +3,10 @@ Revision history for Neo4j::Driver::Net::HTTP::LWP
 released as part of the Neo4j-Driver distribution
 
 
+1.0155 / development
+
+ - Fix Unicode bug in username/password handling of LWP net adapter.
+
 1.01 / 2024-11-28
 
  - Tests no longer use config options deprecated in Neo4j::Driver version 1.
