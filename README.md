@@ -29,6 +29,8 @@ cpanm Dist::Zilla::PluginBundle::Author::AJNN
 dzil install
 ```
 
+[![Build and Test](https://github.com/johannessen/Neo4j-Driver-Plugin-LWP/actions/workflows/test.yaml/badge.svg)](https://github.com/johannessen/Neo4j-Driver-Plugin-LWP/actions/workflows/test.yaml)
+
 This is a “Pure Perl” module, so you generally do not need
 Dist::Zilla to contribute patches. You can simply clone the
 repository and run the test suite using `prove` instead.

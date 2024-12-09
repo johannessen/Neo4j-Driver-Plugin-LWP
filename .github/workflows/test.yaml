@@ -1,0 +1,76 @@
+name: Build and Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  build-job:
+    name: Build distribution
+    runs-on: ubuntu-latest
+    container:
+      image: perldocker/perl-tester:5.40
+    env:
+      AUTOMATED_TESTING: 1
+      NO_NETWORK_TESTING: 1
+      NONINTERACTIVE_TESTING: 1
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          dzil authordeps --missing | cpanm -nq
+          dzil listdeps --missing --author | cpanm -nq
+      - name: Test
+        run: dzil test
+        env:
+          EXTENDED_TESTING: 1
+          RELEASE_TESTING: 1
+          AUTHOR_TESTING: 1
+      - name: Build
+        run: dzil build --no-tgz --in build_dir
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build_dir
+          path: build_dir
+          retention-days: 1
+
+  test-job:
+    needs: build-job
+    runs-on: ubuntu-latest
+    name: "Perl ${{ matrix.perl }}"
+    strategy:
+      matrix:
+        include:
+          - perl: "5.10"
+          - perl: "5.20"
+          - perl: "5.30"
+          - perl: "5.38"
+          - perl: "5.40"
+      fail-fast: false
+    env:
+      AUTOMATED_TESTING: 1
+      NONINTERACTIVE_TESTING: 1
+    steps:
+      - name: Install Perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl }}
+          install-modules: >
+            LWP
+            Mock::Quick
+            Neo4j::Driver
+      - name: Get distribution
+        uses: actions/download-artifact@v4
+        with:
+          name: build_dir
+          path: .
+      - name: Install distribution dependencies
+        run: cpanm -nq --installdeps .
+      - name: Test
+        run: prove -l
