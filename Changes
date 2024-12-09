@@ -1,11 +1,18 @@
-Revision history for Neo4j::Driver::Net::HTTP::LWP
+Revision history for Neo4j::Driver::Plugin::LWP
 
-released as part of the Neo4j-Driver distribution
+released as part of the Neo4j-Driver distribution up until 1.01
 
 
-1.0155 / development
+1.02 / 2024-12-11
+
+ - Spin off net adapter module Neo4j::Driver::Net::HTTP::LWP into the
+   separate distribution Neo4j-Driver-Plugin-LWP. Earlier versions of the
+   module were released as part of the Neo4j-Driver distribution.
+
+ - Add Neo4j::Driver::Plugin::LWP.
 
  - Fix Unicode bug in username/password handling of LWP net adapter.
+
 
 1.01 / 2024-11-28
 

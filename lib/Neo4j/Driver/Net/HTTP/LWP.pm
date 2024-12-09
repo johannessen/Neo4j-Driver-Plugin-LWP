@@ -167,6 +167,10 @@ the Neo4j server via HTTP or HTTPS.
 
 HTTPS connections require L<LWP::Protocol::https> to be installed.
 
+Version 0.x of L<Neo4j::Driver> came with this module bundled within
+the same CPAN distribution. Later versions don't include this module
+and use L<HTTP::Tiny> by default instead of L<LWP>.
+
 =head1 METHODS
 
 L<Neo4j::Driver::Net::HTTP::LWP> implements the following methods;
